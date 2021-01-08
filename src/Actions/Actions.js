@@ -7,7 +7,7 @@ class Actions extends React.Component{
 
     // FETCH USERS FROM DATABASE
     fetchUsers = () => {
-        Axios.get('http://stocksgems.in/api/all-users.php')
+        Axios.get('http://10.154.3.108:8090/react/api/all-users.php')
         .then(({data}) => {
 			 console.log(data.users, data);
             if(data.success === 1){
@@ -54,7 +54,7 @@ class Actions extends React.Component{
 
     // UPDATE USER
     handleUpdate = (id,user_name,user_email) => {
-        Axios.post('http://stocksgems.in/api/update-user.php',
+        Axios.post('http://10.154.3.108:8090/react/api/update-user.php',
         {
             id:id,
             user_name:user_name,
@@ -92,7 +92,7 @@ class Actions extends React.Component{
             return user.id !== id;
         });
         
-        Axios.post('http://stocksgems.in/api/delete-user.php',{
+        Axios.post('http://10.154.3.108:8090/react/api/delete-user.php',{
             id:id
         })
         .then(({data}) => {
@@ -114,7 +114,7 @@ class Actions extends React.Component{
     insertUser = (event,user_name,user_email) => {
         event.preventDefault();
         event.persist();
-        Axios.post('http://stocksgems.in/api/add-user.php',{
+        Axios.post('http://10.154.3.108:8090/react/api/add-user.php',{
             user_name:user_name,
             user_email:user_email
         })
